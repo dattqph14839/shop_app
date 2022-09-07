@@ -75,6 +75,11 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.of(context).pushNamed(CartScreen.routeName);
               },
+              // key: ValueKey(ca.items.keys.toList()[index]),
+              // direction: DismissDirection.endToStart,
+              // onDismissed: (direction) {
+              //   cart.removeItem(cart.items.keys.toList()[index]);
+              // },
             ),
           ),
         ],

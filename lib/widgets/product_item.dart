@@ -44,7 +44,7 @@ class _ProductItemState extends State<ProductItem> {
           trailing: IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
-              _readCartController.addItem(
+              _readCartController..addItem(
                 _readProduct?.id ?? "",
                 double.parse("${_readProduct?.price ?? 0}"),
                 _readProduct?.title ?? "");
@@ -53,8 +53,14 @@ class _ProductItemState extends State<ProductItem> {
                 content: Text("Thành công"),
               ));
             },
+
+
             color: Colors.red,
+
+
           ),
+
+
         ),
         child: GestureDetector(
           onTap: () {

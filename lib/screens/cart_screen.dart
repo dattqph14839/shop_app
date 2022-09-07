@@ -20,6 +20,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartController>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Cart'),
@@ -35,7 +36,7 @@ class _CartScreenState extends State<CartScreen> {
                 children: <Widget>[
                   const Text(
                     'Total',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 50),
                   ),
                   Spacer(),
                   Chip(
@@ -50,27 +51,44 @@ class _CartScreenState extends State<CartScreen> {
                   FlatButton(
                     child: Text('ORDER NOW'),
                     onPressed: () {
-                      // _readCartController.clear();
+                      _readCartController.clear();
                     },
                     textColor: Theme.of(context).primaryColor,
                   )
+
+                  // IconButton(
+                  //     icon: Icon(
+                  //       Icons.delete,
+                  //     ),
+                  //     onPressed:  (),
+                  // ),
                 ],
               ),
             ),
           ),
-          SizedBox(height: 10),
+
+          SizedBox(height: 40),
           Expanded(
             child: ListView.builder(
+
               itemCount: _watchCartController.items.length,
+
               itemBuilder: (ctx, i) => CartItem(
                 _watchCartController.items.values.toList()[i].id,
                 _watchCartController.items.keys.toList()[i],
                 _watchCartController.items.values.toList()[i].price,
                 _watchCartController.items.values.toList()[i].quantity,
                 _watchCartController.items.values.toList()[i].title,
+
                   ),
+
+
+
             ),
+
+
           )
+
         ],
       ),
     );
